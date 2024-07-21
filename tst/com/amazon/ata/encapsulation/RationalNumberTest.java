@@ -132,4 +132,14 @@ public class RationalNumberTest {
         //THEN
         assertTrue(equal, "1/2 and 2/4 should be equal.");
     }
+    @Test
+    public void constructor_existingRationalNumber_createsCopy() {
+        //GIVEN
+        RationalNumber original = new RationalNumber(3, 5);
+        //WHEN
+        RationalNumber copy = new RationalNumber(original);
+        //THEN
+        assertEquals(original.getNumerator(), copy.getNumerator());
+        assertEquals(original.getDenominator(), copy.getDenominator());
+    }
 }
