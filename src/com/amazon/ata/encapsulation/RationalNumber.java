@@ -6,8 +6,8 @@ package com.amazon.ata.encapsulation;
  */
 public class RationalNumber {
 
-    public int numerator;
-    public int denominator;
+    private int numerator;
+    private int denominator;
 
     /**
      * Constructs a new rational number representing 0. Numerator = 0, Denominator = 1.
@@ -33,6 +33,18 @@ public class RationalNumber {
         reduce();
     }
 
+    public RationalNumber(RationalNumber original) {
+        this.numerator = original.numerator;
+        this.denominator = original.denominator;
+       
+    }
+
+   
+    public RationalNumber(RationalNumber original) {
+        this.numerator = original.numerator;
+        this.denominator = original.denominator;
+        
+    }
     /**
      * Calculates the rational number as a decimal value.
      *
@@ -75,6 +87,26 @@ public class RationalNumber {
      */
     public String toString() {
         return String.format("%d/%d", numerator, denominator);
+    }
+  
+    public void update(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Denominator cannot be 0.");
+        }
+        this.numerator = numerator;
+        this.denominator = denominator;
+
+        reduce();
+    }
+
+   
+    public int getNumerator() {
+        return numerator;
+    }
+
+  
+    public int getDenominator() {
+        return denominator;
     }
 
     // Euclidean algorithm to computing the GCD (Greatest Common Divisor)
